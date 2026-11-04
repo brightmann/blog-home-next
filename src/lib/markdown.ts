@@ -1,26 +1,14 @@
-import {marked} from 'marked'
+import { marked } from 'marked';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
-import '@/lib/css/editor-v3.style.css'
+import '@/lib/css/editor-v3.style.css';
 
-export async function  transformMarkdown(markdownString:string) {
-    return  new Promise((resolve, reject)=>{
-        // marked 全局变量
-        marked.setOptions({
-            // 设置代码高亮插件
-            highlight: function(code:string, lang:string, callback:any) {
-                let result = ''
-                result = Prism.highlight(code, Prism.languages.javascript, "javascript")
-                callback("", result.toString());
-            }
-        });
-          marked.parse(markdownString, (err:string, html:string) => {
-              if(err){
-                  reject(err.toString())
-              }else {
-                  resolve(html.toString())
-              }
-
-        });
-    })
+// Markdown comes only from the trusted local content file, not user input.
+export async function transformMarkdown(markdownString: string): Promise<string> {
+  return marked.parse(markdownString, {
+    highlight(code: string, lang: string) {
+      const grammar = Prism.languages[lang];
+      return grammar ? Prism.highlight(code, grammar, lang) : code;
+    },
+  });
 }
