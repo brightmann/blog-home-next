@@ -1,3 +1,3 @@
-export async function GET(request: Request) {
+export async function GET() {
   return new Response('你好，江夏！')
 }
