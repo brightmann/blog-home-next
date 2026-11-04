@@ -34,7 +34,7 @@
   --el-color-primary: var(--main-color);
 }
 .md-editor-preview{
-  color: var(--text-color);
+  color: inherit;
 /*  */
 }
 .md-editor-preview.default-theme blockquote{
