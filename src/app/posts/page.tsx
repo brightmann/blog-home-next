@@ -1,27 +1,21 @@
-import {getArticleList} from "@/app/api/posts/posts";
-import Link from 'next/link'
-import Image from 'next/image'
-export default async function  Posts() {
-    const data:any = await getArticleList()
-    // console.log("=================================>",data)
-    const list:any[] = data.list
-    const listItems:any[] = list.map((item:any, index:number) =>
-        <div className="card w-96 bg-base-100 shadow-xl image-full mt-2 mr-2" key={item.id}>
-            <figure><img src={item.cover} alt={item.title}/></figure>
-            <div className="card-body">
-                <h2 className="card-title">{item.title}</h2>
-                <p>{item.description}</p>
-                <div className="card-actions justify-end">
-                    <Link href={'/posts/'+item.id}>
-                        <button className="btn btn-primary">Read</button>
-                    </Link>
-                </div>
+import { getArticleList } from '@/app/api/posts/posts';
+import Link from 'next/link';
+
+export default async function Posts() {
+  const { list } = await getArticleList();
+  return (
+    <div className="flex justify-around flex-wrap gap-4 p-4">
+      {list.map((item) => (
+        <article className="card w-96 max-w-full bg-base-100 shadow-xl" key={item.id}>
+          <div className="card-body">
+            <h2 className="card-title">{item.title}</h2>
+            <p>{item.description}</p>
+            <div className="card-actions justify-end">
+              <Link className="btn btn-primary" href={'/posts/' + item.id}>Read</Link>
             </div>
-        </div>
-    )
-    return(<>
-        <div className="flex justify-around flex-wrap">
-            {listItems}
-        </div>
-    </>)
+          </div>
+        </article>
+      ))}
+    </div>
+  );
 }
