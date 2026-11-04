@@ -1,6 +1,13 @@
 import { getArticleInfo } from '@/app/api/posts/posts';
+import { posts } from '@/content/posts';
 import { transformMarkdown } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return posts.map((post) => ({ slug: post.id }));
+}
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
