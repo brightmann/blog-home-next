@@ -8,6 +8,12 @@ export type Post = {
 // Sample content. Add or edit posts here, then rebuild the site.
 export const posts: Post[] = [
   {
+    id: 'fh',
+    title: '战马',
+    description: '这是一篇文章',
+    content: '<iframe width="713" height="401" src="https://www.youtube.com/embed/asKQbk7AcJU" title="崔伟立原唱《战马》完整版 歌曲旋律优美，句句入耳入心超好听" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+  },
+  {
     id: 'welcome',
     title: '示例文章：欢迎',
     description: '这是一篇示例文章，用于展示博客的文章列表和阅读页面。',
