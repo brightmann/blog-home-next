@@ -21,7 +21,7 @@ export const posts: Post[] = [
   },
   {
     id: 'markdown-demo',
-    title: '示例文章：Markdown',
+    title: 'Markdown的示例',
     description: '展示标题、列表和代码块。',
     content: '# 示例文章：Markdown\n\n这是一篇格式演示文章。\n\n## 列表\n\n- 支持 **粗体** 和 *斜体*\n- 支持代码块\n- 内容保存在 GitHub 仓库中\n\n```javascript\nconst greeting = "Hello, blog!";\nconsole.log(greeting);\n```',
   },
