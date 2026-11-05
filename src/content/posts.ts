@@ -15,7 +15,7 @@ export const posts: Post[] = [
   },
   {
     id: 'welcome',
-    title: '示例文章：欢迎',
+    title: '欢迎',
     description: '这是一篇示例文章，用于展示博客的文章列表和阅读页面。',
     content: '# 示例文章：欢迎\n\n这是一篇示例文章，不是站长的真实文章。\n\n博客现在使用仓库中的本地内容，不再依赖原作者的服务器。\n\n编辑 `src/content/posts.ts` 可以修改或添加文章，提交后重新部署即可更新网站。',
   },
